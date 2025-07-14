@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Allow read access to public data
+    match /public/{document=**} {
+      allow read: if true;
+    }
+
+    // User-specific data
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Campaigns data
+    match /campaigns/{campaignId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'brand';
+    }
+
+    // Messages between users
+    match /messages/{messageId} {
+      allow read, write: if request.auth != null && (
+        request.auth.uid == request.resource.data.senderId ||
+        request.auth.uid == request.resource.data.receiverId
+      );
+    }
+
+    // Notifications for users
+    match /notifications/{notificationId} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow write: if request.auth != null && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Analytics data (read-only for authenticated users)
+    match /analytics/{document=**} {
+      allow read: if request.auth != null;
+    }
+
+    // Deny all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

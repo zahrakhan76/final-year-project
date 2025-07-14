@@ -1,0 +1,85 @@
+/* Styles for the chat container */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Notifications section */
+.notifications {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.notification {
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+/* User list section */
+.user-list {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.user {
+    padding: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.user.selected {
+    background-color: #d1e7ff;
+    font-weight: bold;
+}
+
+/* Messages section */
+.messages {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.message {
+    padding: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Input container */
+.input-container {
+    display: flex;
+    gap: 10px;
+}
+
+.input-container input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-container button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-container button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
