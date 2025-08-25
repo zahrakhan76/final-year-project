@@ -33,7 +33,7 @@ def chatbot_response(request):
         # If no match, query OpenRouter API
         openrouter_url = "https://openrouter.ai/api/v1/chat/completions"  # Updated endpoint
         headers = {
-            'Authorization': 'Bearer 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',
+            'Authorization': '',
             'Content-Type': 'application/json',
             'HTTP-Referer': 'https://flumers.com',  # Added referer header
             'X-Title': 'Flumers Assistant'  # Added title header
