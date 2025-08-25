@@ -4,14 +4,6 @@ import { getAuth } from "firebase/auth";
 import { getFirestore, doc, setDoc, getDoc, collection, addDoc, query, where, onSnapshot, orderBy, getDocs, updateDoc } from "firebase/firestore";
 
 // Ensure the Firebase API key is loaded from environment variables
-const firebaseConfig = {
-  apiKey: "AIzaSyC6G6sInNBjuNdyoGGcOlDDIrq3_2SGi8Y",
-  authDomain: "flumers-ai.firebaseapp.com",
-  projectId: "flumers-ai",
-  storageBucket: "flumers-ai.appspot.com",
-  messagingSenderId: "475488141433",
-  appId: "1:475488141433:web:fe2755138e886ca75414a8"
-};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
